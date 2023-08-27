@@ -1,0 +1,25 @@
+//Read data(ename,age,sal) from emp.txt file and copy into rbnb.txt
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  FILE *f1,*f2;
+   int age;
+   float sal;
+   char name[10];
+   f1=fopen("emp.txt","r");
+   f2=fopen("rbnb.txt","w");
+   if(f1==NULL)
+   {
+      printf("File not found...");
+      exit(0);
+   }
+   while(!feof(f1))
+   {
+     fscanf(f1,"%s%d%f",&name,&age,&sal);
+     fprintf(f2,"\n%s\t%d\t%f",name,age,sal);
+   }
+ fclose(f1);
+ fclose(f2);
+printf("copy succ..");
+}
