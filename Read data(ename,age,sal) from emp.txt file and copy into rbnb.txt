@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  FILE *f1,*f2;
+   int age;
+   float sal;
+   char ename[10];
+   f1=fopen("emp.txt","r");
+   f2=fopen("rbnb.txt","w");
+   if(f1==NULL)
+   {
+      printf("File not found...");
+      exit(0);
+   }
+   while(!feof(f1))
+   {
+     fscanf(f1,"%s%d%f",&ename,&age,&sal);
+     fprintf(f2,"\nName=%s",ename);
+     fprintf(f2,"\nAge=%d",age);
+     fprintf(f2,"\nSalaryy=%f",sal);
+   }
+ fclose(f1);
+ fclose(f2);
+ printf("copy succ..");
+}
