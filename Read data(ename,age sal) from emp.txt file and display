@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  FILE *f1;
+   int age;
+   float sal;
+   char name[10];
+   f1=fopen("emp.txt","r");
+   if(f1==NULL)
+   {
+      printf("File not found...");
+      exit(0);
+   }
+   while(!feof(f1))
+   {
+     fscanf(f1,"%s%d%f",&name,&age,&sal);
+     printf("\n Emp name=%s",name);
+     printf("\n Emp Age=%d",age);
+     printf("\n Emp sal=%f",sal);
+   }
+   fclose(f1);
+}
